@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Kualitas Air Sungai di Yogyakarta</title>
+</head>
+<body>
+    <h1>Prediksi Kualitas Air Sungai di Yogyakarta</h1>
+    <h1>Berdasarkan Data Primer</h1>
+
+    <!-- Tampilkan pesan error jika ada -->
+    {% if error %}
+    <p style="color: red;">Error: {{ error }}</p>
+    {% endif %}
+
+    <form action="{{ url_for('predict_form') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label for="latitude">Latitude:</label><br>
+        <!--<input type="text" id="latitude" name="latitude" required><br><br>-->
+         {{ form.latitude() }}<br><br>
+
+        <label for="longitude">Longitude:</label><br>
+       <!-- <input type="text" id="longitude" name="longitude" required><br><br>-->
+        {{ form.longitude() }}<br><br>
+
+        <label for="features">Fitur:</label><br>
+        BOD, COD, Mikroplastik, Suhu, PH, DO, TSS
+        <input type="hidden" id="features" name="features" value="BOD,COD,Mikroplastik,Suhu,PH,DO,TSS" required><br><br>
+
+        <button type="submit">Prediksi</button> <button type="reset">Reset</button>
+    </form>
+    <p><a href="/form_dlh">Prediksi Berdasarkan Data DLH</a>
+
+</body>
+</html>

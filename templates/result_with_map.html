@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi Kualitas Air Sungai di Yogyakarta</title>
+</head>
+<body>
+    <h1>Hasil Prediksi</h1>
+    <p><strong>Latitude:</strong> {{ latitude }}</p>
+    <p><strong>Longitude:</strong> {{ longitude }}</p>
+    <h2>Prediksi Berdasarkan Data Primer 2024:</h2>
+    <ul>
+        {% for feature, value in predictions.items() %}
+        <li>{{ feature }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Location Map:</h2>
+    <iframe src="/static/map.html" width="80%" height="500px" style="border:none;"></iframe>
+    <br>
+    <a href="/">Back to Form</a>
+</body>
+</html>
