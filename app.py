@@ -187,7 +187,7 @@ def predict_form2():
                 raise ValueError("Features tidak boleh kosong.")
 
             # Get predictions
-            predictions = kriging_predict_multiple_dlkh(latitude, longitude, features)
+            predictions_dlkh = kriging_predict_multiple_dlkh(latitude, longitude, features)
 
             # Create map with Folium
             m = folium.Map(location=[latitude, longitude], zoom_start=12)
@@ -212,7 +212,7 @@ def predict_form2():
 
             # Add Marker for user input location
             popup_info = f"Latitude: {latitude}, Longitude: {longitude}<br>Predictions:<br>"
-            for feature, value in predictions.items():
+            for feature, value in predictions_dlkh.items():
                 popup_info += f"{feature}: {value:.2f}<br>"
 
             folium.Marker(
@@ -227,7 +227,7 @@ def predict_form2():
             m.save(map_file)
 
             # Render results page with map
-            return render_template('result_with_map.html', latitude=latitude, longitude=longitude, predictions=predictions, map_file=map_file)
+            return render_template('resultdlh_with_map.html', latitude=latitude, longitude=longitude, predictions_dlkh=predictions_dlkh, map_file=map_file)
 
         except ValueError as ve:
             # Tangkap error validasi dan kembalikan pesan error ke pengguna
