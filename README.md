@@ -1,1 +1,1 @@
-pip3 install requirements.txt
+Just simple machine learning app with ordinary kriging
