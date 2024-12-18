@@ -240,5 +240,5 @@ def predict_form2():
     return render_template('form_dlh.html', form_dlh=form_dlh)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    #app.run(host='10.15.75.18', port=80)
+    #app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080)
